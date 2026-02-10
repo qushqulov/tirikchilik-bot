@@ -19,6 +19,19 @@ def start_command(update: Update, context: CallbackContext):
                 [
                     KeyboardButton(text="Tilni tanlash"),
                 ],
-            ]
+                # [
+                #     KeyboardButton(text="Contact Yuborish", request_contact=True),
+                #     KeyboardButton(text="Lokatsiya Yuborish", request_location=True),
+                # ],
+            ],
+            resize_keyboard=True,
+            # one_time_keyboard=True,
         ),
     )
+
+
+def cart_hendler(update: Update, context: CallbackContext):
+    update.message.reply_html(
+        text='<b>Sizning savatingiz bo\'sh</b>'
+    )
+    
