@@ -5,7 +5,7 @@ from telegram import (
     InlineKeyboardMarkup, InlineKeyboardButton,
 )
 
-from telegram.ext import CallbackContext, CommandHandler, MessageHandler, Filters, CallbackQueryHandler
+from telegram.ext import CallbackContext, MessageHandler, Filters
 
 from ..config import contants
 
@@ -56,23 +56,7 @@ def select_lang_hendler(update: Update, context: CallbackContext):
         )
     )
 
-
 def change_lang_query(update: Update, context: CallbackContext):
-    query = update.callback_query
-    _, lang = query.data.split(':')
-    query.answer()
-    query.message.reply_text(f'Siz {lang} tilini tanladingiz.')
+    _, lang = update.callback_query.data.split(':')
+    update.callback_query.message.reply_text(f'siz {lang} ni tanladingiz.')
 
-
-"""
-# Buni dispatcher bor joyga qo'shishingiz shart:
-
-updater = Updater("TOKEN_SHU_YERGA", use_context=True)
-dispatcher = updater.dispatcher
-
-dispatcher.add_handler(CommandHandler("start", start_command))
-dispatcher.add_handler(MessageHandler(Filters.text("Hamkorlik"), hamkorlik_handler))
-dispatcher.add_handler(MessageHandler(Filters.text("📥 Savatcha"), cart_hendler))
-dispatcher.add_handler(MessageHandler(Filters.text("Tilni tanlash"), select_lang_hendler))
-dispatcher.add_handler(CallbackQueryHandler(change_lang_query, pattern='^lang:'))
-"""
