@@ -3,15 +3,13 @@ from telegram.ext import (
     CommandHandler,
     MessageHandler,
     Filters,
-    CallbackQueryHandler,
 )
 
 from .config import settings
 from .handlers import (
     start_command,
     cart_hendler,
-    select_lang_hendler,
-    change_lang_query,
+    hamkorlik_hendler
 )
 
 
@@ -26,21 +24,13 @@ def main() -> None:
     dispatcher.add_handler(MessageHandler(
         filters=Filters.text('📥 Savatcha'),
         callback=cart_hendler
-    ))
-    dispatcher.add_handler(MessageHandler(
-        filters=Filters.text('Tilni tanlash'),
-        callback=select_lang_hendler
-    ))
-    # dispatcher.add_handler(MessageHandler(
-    #     filters=Filters.text,
-    #     callback=select_lang_hendler
-    # ))
+    )) 
 
-    # callback query handlers
-    dispatcher.add_handler(CallbackQueryHandler(
-        callback=change_lang_query,
-        pattern='lang:'
+    dispatcher.add_handler(MessageHandler(
+        filters=Filters.text('Hamkorlik'),
+        callback=hamkorlik_hendler
     ))
+
 
     updater.start_polling()
     updater.idle()

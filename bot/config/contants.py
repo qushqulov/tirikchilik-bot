@@ -14,4 +14,8 @@ O‘zbekiston bo‘yicha jo‘natmalar seshanba va juma kunlari amalga oshirilad
 Agar bu shartlar sizni qoniqtirsa, “🔥 Mahsulotlar” bo'limiga o'tish orqali buyurtma berishni boshlashingiz mumkin."""
 
 
+    hamkorlik_taxt = """Biz sizning kompaniyangiz bilan hamkorlik qilishdan mamnunmiz va sizning buyurtmangizga asosan futbolkalar, xudi, svitshot va boshqa ko'p narsalarni tayyorlashimiz mumkin.
+
+Menejer bilan bog'lanish uchun: @qushqulov_0221"""
+
 contants = Constants()
